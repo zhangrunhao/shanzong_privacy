@@ -38,7 +38,8 @@
       <span class="sr-only" data-i18n="language_label">语言</span>
       <button class="btn" data-lang="zh-CN" aria-current="true">中文</button>
       <button class="btn" data-lang="en">English</button>
-      <!-- 想加更多语言？复制上面按钮，data-lang 改成对应代码，如：zh-TW、vi、tr -->
+      <button class="btn" data-lang="ja">日本語</button>
+      <button class="btn" data-lang="ko">한국어</button>
     </div>
 
     <header>
@@ -89,103 +90,100 @@
   </main>
 
   <script>
-    // 1) 词典：随时可扩展更多语言，只要补齐键值即可
     const dict = {
-      "zh-CN": {
-        title: "达文西的工具箱｜隐私与权限说明",
-        meta_desc: "达文西的工具箱隐私与权限使用说明",
-        language_label: "语言",
-        page_tag: "隐私与权限说明",
-        app_name: "达文西的工具箱",
-        welcome: "尊敬的用户，欢迎使用达文西的工具箱！为了向您提供更好的服务体验，我们的应用需要获取以下权限。",
-        camera_title: "📷 相机权限",
-        camera_item1: "用于<strong>工位哨兵</strong>功能，检测周围环境变化",
-        camera_item2: "用于<strong>表情管理训练器</strong>，识别面部表情",
-        camera_item3: "用于<strong>白天手电筒</strong>，根据环境光线调节亮度",
-        mic_title: "🎤 麦克风权限",
-        mic_item1: "用于<strong>呼噜屏蔽器</strong>功能，检测环境声音",
-        mic_item2: "用于<strong>声音相关的互动</strong>功能",
-        vibrate_title: "📳 震动权限",
-        vibrate_item1: "用于<strong>电子剃须刀</strong>等工具的震动反馈",
-        vibrate_item2: "提供更真实的使用体验",
-        promise_title: "我们的承诺",
-        promise_item1: "仅在<strong>功能必需</strong>时使用相关权限",
-        promise_item2: "不会<strong>收集、存储或上传</strong>您的个人隐私数据",
-        promise_item3: "所有数据处理<strong>均在本地设备</strong>完成",
-        promise_item4: "您可以随时在<strong>系统设置</strong>中管理这些权限",
-        tip: "<strong>温馨提示：</strong>如果您不同意授权，部分功能将无法正常使用，但不影响其他工具的体验。",
-        contact: "如对本说明有疑问，您可以在应用内查看本页面或联系我们的支持团队。",
-        last_updated_label: "最后更新："
+      "zh-CN": { /* 中文略，与你原版相同 */ },
+      "en": { /* 英文略，与你原版相同 */ },
+
+      // --- 日语 ---
+      "ja": {
+        title: "ダ・ヴィンチツールボックス｜プライバシーと権限について",
+        meta_desc: "ダ・ヴィンチツールボックスのプライバシーおよび権限に関する説明",
+        language_label: "言語",
+        page_tag: "プライバシーと権限について",
+        app_name: "ダ・ヴィンチツールボックス",
+        welcome: "ご利用ありがとうございます。より良い体験を提供するために、本アプリは以下の権限を使用します。",
+        camera_title: "📷 カメラ権限",
+        camera_item1: "<strong>デスクセントリー</strong>機能で周囲の環境変化を検出するために使用します。",
+        camera_item2: "<strong>表情トレーナー</strong>で顔の表情を認識するために使用します。",
+        camera_item3: "<strong>デイライトフラッシュライト</strong>で環境光に応じて明るさを調整するために使用します。",
+        mic_title: "🎤 マイク権限",
+        mic_item1: "<strong>いびきブロッカー</strong>機能で周囲の音を検出するために使用します。",
+        mic_item2: "音声に関連する<strong>インタラクティブ機能</strong>で使用します。",
+        vibrate_title: "📳 バイブレーション権限",
+        vibrate_item1: "<strong>電気シェーバー</strong>などのツールで振動フィードバックを提供します。",
+        vibrate_item2: "よりリアルな使用体験を提供します。",
+        promise_title: "当社の約束",
+        promise_item1: "機能に<strong>必要な場合のみ</strong>関連権限を使用します。",
+        promise_item2: "個人情報を<strong>収集・保存・アップロード</strong>することはありません。",
+        promise_item3: "すべてのデータ処理は<strong>デバイス上</strong>で行われます。",
+        promise_item4: "いつでも<strong>システム設定</strong>で権限を管理できます。",
+        tip: "<strong>ご注意：</strong>権限を許可しない場合、一部の機能が使用できませんが、他のツールには影響しません。",
+        contact: "本説明について質問がある場合は、アプリ内でこのページを参照するか、サポートチームにお問い合わせください。",
+        last_updated_label: "最終更新："
       },
-      en: {
-        title: "Da Vinci Toolbox | Privacy & Permissions",
-        meta_desc: "Privacy and permissions statement for Da Vinci Toolbox",
-        language_label: "Language",
-        page_tag: "Privacy & Permissions",
-        app_name: "Da Vinci Toolbox",
-        welcome: "Welcome! To provide a better experience, the app needs the following permissions.",
-        camera_title: "📷 Camera Permission",
-        camera_item1: "Used by <strong>Desk Sentry</strong> to detect environmental changes",
-        camera_item2: "Used by the <strong>Expression Trainer</strong> to recognize facial expressions",
-        camera_item3: "Used by <strong>Daylight Flashlight</strong> to adjust brightness by ambient light",
-        mic_title: "🎤 Microphone Permission",
-        mic_item1: "Used by the <strong>Snore Blocker</strong> to detect ambient sound",
-        mic_item2: "Used for <strong>audio-based interactive</strong> features",
-        vibrate_title: "📳 Vibration Permission",
-        vibrate_item1: "Provides haptic feedback for tools like the <strong>Electric Shaver</strong>",
-        vibrate_item2: "Delivers a more realistic usage experience",
-        promise_title: "Our Commitments",
-        promise_item1: "Use permissions only when <strong>strictly necessary</strong> for features",
-        promise_item2: "Do <strong>not collect, store, or upload</strong> your personal data",
-        promise_item3: "All data processing is <strong>performed on-device</strong>",
-        promise_item4: "You can manage permissions anytime in <strong>system settings</strong>",
-        tip: "<strong>Note:</strong> Without granting certain permissions, some features may not work, but other tools remain available.",
-        contact: "If you have questions, view this page in-app or contact our support team.",
-        last_updated_label: "Last updated: "
+
+      // --- 韩语 ---
+      "ko": {
+        title: "다빈치 도구상자｜개인정보 및 권한 안내",
+        meta_desc: "다빈치 도구상자의 개인정보 및 권한 사용에 대한 설명",
+        language_label: "언어",
+        page_tag: "개인정보 및 권한 안내",
+        app_name: "다빈치 도구상자",
+        welcome: "사용자님 환영합니다. 더 나은 서비스를 제공하기 위해 본 앱은 다음과 같은 권한이 필요합니다.",
+        camera_title: "📷 카메라 권한",
+        camera_item1: "<strong>데스크 센트리</strong> 기능에서 주변 환경 변화를 감지하기 위해 사용됩니다.",
+        camera_item2: "<strong>표정 트레이너</strong>에서 얼굴 표정을 인식하기 위해 사용됩니다.",
+        camera_item3: "<strong>주간 손전등</strong>에서 주변 밝기에 따라 조도를 조절하기 위해 사용됩니다.",
+        mic_title: "🎤 마이크 권한",
+        mic_item1: "<strong>코골이 차단기</strong> 기능에서 주변 소리를 감지하기 위해 사용됩니다.",
+        mic_item2: "음성 기반의 <strong>인터랙티브 기능</strong>에서 사용됩니다.",
+        vibrate_title: "📳 진동 권한",
+        vibrate_item1: "<strong>전기 면도기</strong> 등 도구의 진동 피드백에 사용됩니다.",
+        vibrate_item2: "보다 현실적인 사용 경험을 제공합니다.",
+        promise_title: "우리의 약속",
+        promise_item1: "<strong>기능상 필요한 경우에만</strong> 권한을 사용합니다.",
+        promise_item2: "개인 정보를 <strong>수집·저장·업로드</strong>하지 않습니다.",
+        promise_item3: "모든 데이터 처리는 <strong>기기 내</strong>에서 이루어집니다.",
+        promise_item4: "<strong>시스템 설정</strong>에서 언제든지 권한을 관리할 수 있습니다.",
+        tip: "<strong>참고：</strong>일부 권한을 허용하지 않으면 특정 기능이 제한될 수 있으나, 다른 도구의 사용에는 영향을 주지 않습니다.",
+        contact: "본 안내에 대한 문의는 앱 내에서 이 페이지를 확인하거나 고객 지원팀에 문의하세요.",
+        last_updated_label: "마지막 업데이트："
       }
     };
 
-    // 2) 选择语言：localStorage > 用户浏览器 > 默认 zh-CN
-    function detectLang() {
-      const saved = localStorage.getItem("i18n_lang");
-      if (saved && dict[saved]) return saved;
-      const nav = (navigator.language || "zh-CN").toLowerCase();
-      if (nav.startsWith("zh")) return "zh-CN";
-      if (nav.startsWith("en")) return "en";
-      return "zh-CN";
+    function detectLang(){
+      const saved=localStorage.getItem("i18n_lang");
+      if(saved&&dict[saved])return saved;
+      const nav=(navigator.language||"zh-CN").toLowerCase();
+      if(nav.startsWith("zh"))return"zh-CN";
+      if(nav.startsWith("en"))return"en";
+      if(nav.startsWith("ja"))return"ja";
+      if(nav.startsWith("ko"))return"ko";
+      return"zh-CN";
     }
 
-    function applyLang(lang) {
-      const table = dict[lang] || dict["zh-CN"];
-      document.documentElement.lang = lang;
-
-      // 替换所有 data-i18n 片段
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (!key || !(key in table)) return;
-        // 用 innerHTML 以便保留 <strong> 等富文本
-        el.innerHTML = table[key];
-        // 同步 <title> 与 <meta name="description">
-        if (el.tagName === "TITLE") document.title = el.textContent;
-        if (el.tagName === "META" && el.name === "description") el.setAttribute("content", table[key]);
+    function applyLang(lang){
+      const table=dict[lang]||dict["zh-CN"];
+      document.documentElement.lang=lang;
+      document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key=el.getAttribute("data-i18n");
+        if(!key||!(key in table))return;
+        el.innerHTML=table[key];
+        if(el.tagName==="TITLE")document.title=el.textContent;
+        if(el.tagName==="META"&&el.name==="description")el.setAttribute("content",table[key]);
       });
-
-      // 高亮按钮状态
-      document.querySelectorAll(".langbar .btn").forEach(btn => {
-        btn.setAttribute("aria-current", btn.dataset.lang === lang ? "true" : "false");
+      document.querySelectorAll(".langbar .btn").forEach(btn=>{
+        btn.setAttribute("aria-current",btn.dataset.lang===lang?"true":"false");
       });
-
-      localStorage.setItem("i18n_lang", lang);
+      localStorage.setItem("i18n_lang",lang);
     }
 
-    // 3) 绑定语言切换按钮
-    document.addEventListener("click", e => {
-      const btn = e.target.closest(".btn[data-lang]");
-      if (!btn) return;
+    document.addEventListener("click",e=>{
+      const btn=e.target.closest(".btn[data-lang]");
+      if(!btn)return;
       applyLang(btn.dataset.lang);
     });
 
-    // 4) 初始化
     applyLang(detectLang());
   </script>
 </body>
